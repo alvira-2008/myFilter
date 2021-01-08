@@ -2,6 +2,7 @@ lipsX = 0
 lipsY = 0
 
 function preload(){
+    lips = loadImage('https://i.postimg.cc/X713SSdB/lips.png');
 }
 
 function setup(){
@@ -17,8 +18,8 @@ function setup(){
 function gotPoses(results){
     if(results.length > 0){
         console.log(results);
-        lipsX = results[0].pose.nose.x + 10;
-        lipsY = results[0].pose.nose.y + 10;
+        lipsX = results[0].pose.nose.x - 30;
+        lipsY = results[0].pose.nose.y - 5;
         console.log("lips x = " + lipsX);
         console.log("lips y = " + lipsY);
     }
@@ -30,6 +31,7 @@ function modelLoaded(){
 
 function draw(){
     image(video,0,0,300,300);
+    image(lips, lipsX, lipsY, 60, 60);
 }
 
 function take_snapshot(){
